@@ -14,7 +14,7 @@ const Works = () => {
       {/* Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Card 1 */}
-        <div className="bg-rose-100 border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-300 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary">
             <img src={bookingImg} alt="Book Parcel" className="w-7" />
           </div>
@@ -28,7 +28,7 @@ const Works = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="bg-[#e0f5a1] border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-300 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-rose-200">
             <img src={bookingImg} alt="Pickup by Rider" className="w-7" />
           </div>
@@ -42,7 +42,7 @@ const Works = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="bg-rose-100 border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-300 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary">
             <img src={bookingImg} alt="In Transit" className="w-7" />
           </div>
@@ -56,7 +56,7 @@ const Works = () => {
         </div>
 
         {/* Card 4 */}
-        <div className="bg-[#e0f5a1] border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-300 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-rose-200">
             <img src={bookingImg} alt="Delivered" className="w-7" />
           </div>
