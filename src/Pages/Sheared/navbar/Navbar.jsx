@@ -1,6 +1,15 @@
 import React from 'react';
+import { NavLink } from 'react-router';
 
 const Navbar = () => {
+
+    const Links = <>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/service">Service</NavLink></li>
+        <li><NavLink to="/contact">Contact</NavLink></li>
+
+    </>
+
     return (
       <div className="navbar bg-base-100 shadow-sm">
         <div className="navbar-start">
@@ -45,7 +54,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl">Zap-Shift</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
