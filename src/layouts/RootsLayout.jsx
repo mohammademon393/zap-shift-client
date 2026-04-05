@@ -5,7 +5,7 @@ import Footer from '../Pages/Sheared/footer/Footer';
 
 const RootsLayout = () => {
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
