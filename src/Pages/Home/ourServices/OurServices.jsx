@@ -3,7 +3,7 @@ import serviceImg from "../../../assets/service.png";
 
 const OurServices = () => {
   return (
-    <div className="bg-secondary rounded-xl my-10  text-white">
+    <div className="bg-secondary rounded-xl my-10 mx-4 md:mx-0 text-white">
       <h2 className="text-3xl font-bold text-center pt-10 ">Our Services</h2>
       <p className="text-gray-300 text-center mt-4 max-w-xl mx-auto">
         We offer a wide range of delivery services to meet all your shipping
