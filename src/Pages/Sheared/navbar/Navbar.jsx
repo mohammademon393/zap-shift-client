@@ -4,30 +4,55 @@ import Logo from '../../../components/logo/Logo';
 
 const Navbar = () => {
 
+  const navClass = ({ isActive }) =>
+isActive
+ ? "bg-primary text-black rounded-full px-5 py-2 font-medium"
+ : "px-5 font-medium py-2 rounded-full hover:bg-base-200 transition-all duration-200";
+ 
     const Links = (
-      <>
-        {/* <li>
-          <NavLink to="/">Home</NavLink>
-        </li> */}
-        <li>
-          <NavLink to="/services">Services</NavLink>
-        </li>
-        <li>
-          <NavLink to="/coverage">Coverage</NavLink>
-        </li>
-        <li>
-          <NavLink to="/aboutUs">About Us</NavLink>
-        </li>
-        <li>
-          <NavLink to="/pricing">Pricing</NavLink>
-        </li>
-        <li>
-          <NavLink to="/blog">Blog</NavLink>
-        </li>
-        <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li>
-      </>
+<>
+  <li>
+    <NavLink to="/" className={navClass}>
+      Home
+    </NavLink>
+  </li>
+
+  <li>
+    <NavLink to="/services" className={navClass}>
+      Services
+    </NavLink>
+  </li>
+
+  <li>
+    <NavLink to="/coverage" className={navClass}>
+      Coverage
+    </NavLink>
+  </li>
+
+  <li>
+    <NavLink to="/aboutUs" className={navClass}>
+      About Us
+    </NavLink>
+  </li>
+
+  <li>
+    <NavLink to="/pricing" className={navClass}>
+      Pricing
+    </NavLink>
+  </li>
+
+  <li>
+    <NavLink to="/blog" className={navClass}>
+      Blog
+    </NavLink>
+  </li>
+
+  <li>
+    <NavLink to="/contact" className={navClass}>
+      Contact
+    </NavLink>
+  </li>
+</>
     );
 
     return (
