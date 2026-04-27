@@ -22,7 +22,7 @@ const Brands = () => {
   ];
 
   return (
-    <div className="mx-6 md:mx-0 my-12">
+    <div className="mx-6 md:mx-0 my-16 ">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">We've helped thousands of sales teams</h2>
       <Swiper className=""
         loop={true}

@@ -13,7 +13,7 @@ const OurServices = () => {
       {/* card parent */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 px-4 md:px-10 pb-10">
         {/* card 1 */}
-        <div className="bg-rose-100 border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-100 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary">
             <img src={serviceImg} alt="Book Parcel" className="w-7" />
           </div>
@@ -41,7 +41,7 @@ const OurServices = () => {
           </p>
         </div>
         {/* card 3 */}
-        <div className="bg-rose-100 border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-100 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary">
             <img src={serviceImg} alt="Book Parcel" className="w-7" />
           </div>
@@ -55,7 +55,7 @@ const OurServices = () => {
           </p>
         </div>
         {/* card 4 */}
-        <div className="bg-rose-100 border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-100 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary">
             <img src={serviceImg} alt="Book Parcel" className="w-7" />
           </div>
@@ -69,7 +69,7 @@ const OurServices = () => {
           </p>
         </div>
         {/* card 5 */}
-        <div className="bg-rose-100 border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-100 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary">
             <img src={serviceImg} alt="Book Parcel" className="w-7" />
           </div>
@@ -83,7 +83,7 @@ const OurServices = () => {
           </p>
         </div>
         {/* card 6 */}
-        <div className="bg-rose-100 border border-gray-100 rounded-2xl p-6 text-center">
+        <div className="bg-base-100 border border-gray-100 rounded-2xl p-6 text-center">
           <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-full bg-primary">
             <img src={serviceImg} alt="Book Parcel" className="w-7" />
           </div>

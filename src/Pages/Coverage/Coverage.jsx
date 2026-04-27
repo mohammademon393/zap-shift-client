@@ -7,7 +7,7 @@ const Coverage = () => {
 
   return (
     <div>
-      <h1 className="text-5xl font-black my-5">Coverage page</h1>
+      <h1 className="text-5xl font-bold my-5">We are available in 64 districts</h1>
 
       {/* map container */}
       <div className="h-[500px] mt-10 border-2 border-gray-300 rounded-xl my-10">

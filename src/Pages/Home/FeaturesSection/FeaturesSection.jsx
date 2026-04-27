@@ -28,12 +28,12 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-16 px-4 md:px-10 bg-base-100">
+    <section className="py-16 px-4 md:px-10">
       <div className="max-w-6xl mx-auto space-y-6">
         {features.map((item) => (
           <div
             key={item.id}
-            className="flex items-center gap-6 bg-base-200 rounded-2xl p-6 md:p-8 hover:shadow-md transition"
+            className="flex items-center gap-6 bg-base-100 rounded-2xl p-6 md:p-8 hover:shadow-md transition"
           >
             {/* Icon */}
             <div className="w-20 h-20 flex items-center justify-center">
@@ -49,7 +49,7 @@ const FeaturesSection = () => {
 
             {/* Content */}
             <div>
-              <h3 className="text-lg md:text-xl font-semibold text-primary mb-2">
+              <h3 className="text-lg md:text-xl font-semibold text-back mb-2">
                 {item.title}
               </h3>
               <p className="text-sm md:text-base text-gray-600 leading-relaxed">
