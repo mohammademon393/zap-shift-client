@@ -56,7 +56,7 @@ isActive
     );
 
     return (
-      <div className="navbar bg-base-100 shadow-sm rounded-xl ">
+      <div className="navbar bg-base-100 shadow-sm rounded-xl px-3">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -92,8 +92,9 @@ isActive
             {Links}
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Login</a>
+        <div className="navbar-end gap-2">
+          <Link to={"/register"} className='btn btn-primary btn-outline text-black'>Register</Link>
+          <Link to={"/login"} className='btn btn-primary text-black'>Login</Link>
         </div>
       </div>
     );

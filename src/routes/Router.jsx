@@ -7,6 +7,9 @@ import Blog from "../Pages/Blog/Blog/Blog";
 import Pricing from "../Pages/Pricing/pricing/Pricing";
 import AboutUs from "../Pages/AboutUs/AboutUs/AboutUs";
 import Services from "../Pages/Services/services/Services";
+import AuthLayout from "../layouts/AuthLayout";
+import Login from "../Pages/Auth/Login/Login";
+import Register from "../Pages/Auth/Register/Register";
 
 export const router = createBrowserRouter([
   {
@@ -43,5 +46,19 @@ export const router = createBrowserRouter([
         Component: Contact,
       },
     ],
+  },
+  {
+    path: "/",
+    element:  <AuthLayout></AuthLayout>,
+    children:[
+      {
+        path: "/login",
+        Component: Login
+      },
+      {
+        path: "register",
+        Component: Register
+      }
+    ]
   },
 ]);
