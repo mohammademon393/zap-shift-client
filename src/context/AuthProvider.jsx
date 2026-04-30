@@ -12,7 +12,7 @@ const AuthProvider = ({children}) => {
     }
 
     // sign user 
-    const signUser = (email, password)=>{
+    const signInUser = (email, password)=>{
         return signInWithEmailAndPassword(auth, email, password);
     }
 
@@ -22,11 +22,10 @@ const AuthProvider = ({children}) => {
     }
 
     const authInfo = {
-        registerUser,
-        signUser,
-        googleSignIn,
-
-    }
+      registerUser,
+      signInUser,
+      googleSignIn,
+    };
 
     return (
         <AuthContext value={authInfo}>
