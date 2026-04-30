@@ -107,23 +107,26 @@ isActive
         </div>
         <div className="navbar-end gap-2">
           {user ? (
-            <button onClick={handleLogOut} className="btn btn-primary text-black">
+            <button
+              onClick={handleLogOut}
+              className="btn btn-primary text-black"
+            >
               Log out
             </button>
           ) : (
-            <>
-              <Link
-                to="/register"
-                className="btn btn-primary btn-outline text-black"
-              >
-                Register
-              </Link>
-
-              <Link to="/login" className="btn btn-primary text-black">
-                Login
-              </Link>
-            </>
+            <Link
+              to="/login"
+              className="btn btn-primary btn-outline text-black"
+            >
+              Login
+            </Link>
           )}
+          <Link
+            to="/be-A-Ride"
+            className="btn btn-primary text-black"
+          >
+            Be a ride
+          </Link>
         </div>
       </div>
     );
