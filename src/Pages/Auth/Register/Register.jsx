@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 import { Link } from 'react-router';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const {register, handleSubmit, formState: { errors }} = useForm();
@@ -20,10 +21,9 @@ const Register = () => {
 
     return (
       <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
-          <h2 className="card-title text-3xl pl-6 mt-5">Welcome to Zap-Shift</h2>
+          <h2 className="card-title text-3xl pl-6 mt-5">Create an account.</h2>
           <p className="text-gray-500 text-sm pl-6">
-            Please create an account to get started with Zap-Shift and manage
-            your work shifts efficiently.
+            Welcome to ZapShift!
           </p>
           <form
             onSubmit={handleSubmit(handleRegistration)}
@@ -86,6 +86,8 @@ const Register = () => {
               </Link>
             </p>
           </form>
+          {/* social login */}
+          <SocialLogin></SocialLogin>
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 import { Link } from 'react-router';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const {register, handleSubmit, formState:{ errors }} = useForm();
@@ -77,6 +78,8 @@ const Login = () => {
             </Link>
           </p>
         </form>
+        {/* social login */}
+        <SocialLogin></SocialLogin>
       </div>
     );
 };
