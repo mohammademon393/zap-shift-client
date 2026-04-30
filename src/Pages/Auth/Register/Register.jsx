@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
+import { Link } from 'react-router';
 
 const Register = () => {
     const {register, handleSubmit, formState: { errors }} = useForm();
@@ -18,11 +19,15 @@ const Register = () => {
     }
 
     return (
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-        <div className="card-body">
+      <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+          <h2 className="card-title text-3xl pl-6 mt-5">Welcome to Zap-Shift</h2>
+          <p className="text-gray-500 text-sm pl-6">
+            Please create an account to get started with Zap-Shift and manage
+            your work shifts efficiently.
+          </p>
           <form
             onSubmit={handleSubmit(handleRegistration)}
-            className="w-full max-w-sm mx-auto mt-10"
+            className="w-full max-w-sm mx-auto card-body"
           >
             <fieldset className="fieldset">
               {/* email field */}
@@ -71,9 +76,17 @@ const Register = () => {
               {/* submit button */}
               <button className="btn btn-neutral mt-4">Register</button>
             </fieldset>
+            <p className="text-gray-500 font-medium px-5">
+              Already you have an account?{" "}
+              <Link
+                to="/login"
+                className="link link-hover text-blue-500 font-semibold"
+              >
+                Login
+              </Link>
+            </p>
           </form>
         </div>
-      </div>
     );
 };
 
