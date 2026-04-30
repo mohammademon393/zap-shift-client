@@ -1,8 +1,23 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
 import Logo from '../../../components/logo/Logo';
+import useAuth from '../../../hooks/useAuth';
 
 const Navbar = () => {
+
+  const {user, logOut} = useAuth();
+
+  const handleLogOut =()=>{
+    logOut()
+    .then(res => {
+      console.log(res.user)
+    })
+
+    .catch(error =>{
+      console.log(error);
+      
+    })
+  }
 
   const navClass = ({ isActive }) =>
 isActive
@@ -88,13 +103,27 @@ isActive
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {Links}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{Links}</ul>
         </div>
         <div className="navbar-end gap-2">
-          <Link to={"/register"} className='btn btn-primary btn-outline text-black'>Register</Link>
-          <Link to={"/login"} className='btn btn-primary text-black'>Login</Link>
+          {user ? (
+            <button onClick={handleLogOut} className="btn btn-primary text-black">
+              Log out
+            </button>
+          ) : (
+            <>
+              <Link
+                to="/register"
+                className="btn btn-primary btn-outline text-black"
+              >
+                Register
+              </Link>
+
+              <Link to="/login" className="btn btn-primary text-black">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </div>
     );
