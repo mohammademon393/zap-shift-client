@@ -12,6 +12,7 @@ import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
 import PrivetRoute from "./PrivetRoute";
 import Rider from "../Pages/Rider/Rider";
+import SendPercel from "../Pages/SendPercel/SendPercel";
 
 export const router = createBrowserRouter([
   {
@@ -50,7 +51,17 @@ export const router = createBrowserRouter([
       {
         path: "/rider",
         element: (
-          <PrivetRoute><Rider></Rider></PrivetRoute>
+          <PrivetRoute>
+            <Rider></Rider>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "send-parcel",
+        element: (
+          <PrivetRoute>
+            <SendPercel></SendPercel>
+          </PrivetRoute>
         ),
       },
     ],

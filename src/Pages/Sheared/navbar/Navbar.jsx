@@ -26,11 +26,11 @@ isActive
  
     const Links = (
 <>
-  <li>
+  {/* <li>
     <NavLink to="/" className={navClass}>
       Home
     </NavLink>
-  </li>
+  </li> */}
 
   <li>
     <NavLink to="/services" className={navClass}>
@@ -59,6 +59,11 @@ isActive
   <li>
     <NavLink to="/blog" className={navClass}>
       Blog
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/send-parcel" className={navClass}>
+      Send Percel
     </NavLink>
   </li>
 
