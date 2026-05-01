@@ -10,6 +10,8 @@ import Services from "../Pages/Services/services/Services";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../Pages/Auth/Login/Login";
 import Register from "../Pages/Auth/Register/Register";
+import PrivetRoute from "./PrivetRoute";
+import Rider from "../Pages/Rider/Rider";
 
 export const router = createBrowserRouter([
   {
@@ -45,20 +47,26 @@ export const router = createBrowserRouter([
         path: "/contact",
         Component: Contact,
       },
+      {
+        path: "/rider",
+        element: (
+          <PrivetRoute><Rider></Rider></PrivetRoute>
+        ),
+      },
     ],
   },
   {
     path: "/",
-    element:  <AuthLayout></AuthLayout>,
-    children:[
+    element: <AuthLayout></AuthLayout>,
+    children: [
       {
         path: "/login",
-        Component: Login
+        Component: Login,
       },
       {
         path: "register",
-        Component: Register
-      }
-    ]
+        Component: Register,
+      },
+    ],
   },
 ]);

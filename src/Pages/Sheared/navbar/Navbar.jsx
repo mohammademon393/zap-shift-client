@@ -109,7 +109,7 @@ isActive
           {user ? (
             <button
               onClick={handleLogOut}
-              className="btn btn-primary text-black"
+              className="btn btn-primary btn-outline text-black"
             >
               Log out
             </button>
@@ -122,7 +122,7 @@ isActive
             </Link>
           )}
           <Link
-            to="/be-A-Ride"
+            to="/rider"
             className="btn btn-primary text-black"
           >
             Be a ride

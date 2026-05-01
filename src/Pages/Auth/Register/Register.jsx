@@ -1,13 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import axios from 'axios';
 
 const Register = () => {
     const {register, handleSubmit, formState: { errors }} = useForm();
     const { registerUser, updateUserProfile } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleRegistration = (data) =>{
       const profileImage = data.photo[0];
@@ -34,11 +36,10 @@ const Register = () => {
               updateUserProfile(userProfile)
               .then(()=>{
                 console.log('profile update done');
-                
+                navigate(location?.state || '/');
               })
               .catch(err =>{
                 console.log(err);
-                
               })
             })
             .catch((err) => {
@@ -132,6 +133,7 @@ const Register = () => {
           <p className="text-gray-500 font-medium px-5">
             Already you have an account?{" "}
             <Link
+              state={location.state}
               to="/login"
               className="link link-hover text-blue-500 font-semibold"
             >
