@@ -13,6 +13,7 @@ import Register from "../Pages/Auth/Register/Register";
 import PrivetRoute from "./PrivetRoute";
 import Rider from "../Pages/Rider/Rider";
 import SendPercel from "../Pages/SendPercel/SendPercel";
+import ErrorPage from "../components/logo/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -64,8 +65,14 @@ export const router = createBrowserRouter([
           </PrivetRoute>
         ),
       },
+      {
+        path: "*",
+        Component: ErrorPage,
+      },
     ],
   },
+
+  // 2nd main layout
   {
     path: "/",
     element: <AuthLayout></AuthLayout>,
@@ -77,6 +84,10 @@ export const router = createBrowserRouter([
       {
         path: "register",
         Component: Register,
+      },
+      {
+        path: "*",
+        Component: ErrorPage,
       },
     ],
   },

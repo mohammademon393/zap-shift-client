@@ -123,7 +123,7 @@ isActive
               to="/login"
               className="btn btn-primary btn-outline text-black"
             >
-              Login
+              Sign in
             </Link>
           )}
           <Link
