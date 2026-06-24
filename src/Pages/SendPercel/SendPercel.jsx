@@ -1,30 +1,80 @@
 import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const SendPercel = () => {
-    const {register, handleSubmit,control, formState: {errors}} = useForm();
-    const serviceCenters = useLoaderData();
-    const regionsDuplicated = serviceCenters.map(c => c.region);
-    const regions = [...new Set(regionsDuplicated)];
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm();
+  const serviceCenters = useLoaderData();
+  const regionsDuplicated = serviceCenters.map((c) => c.region);
+  const regions = [...new Set(regionsDuplicated)];
 
-    // watch sender & receiver regions to update district options
-    const senderRegion = useWatch({control, name: "senderRegion"});
-    const receiverRegion = useWatch({control, name: "receiverRegion"});
+  // watch sender & receiver regions to update district options
+  const senderRegion = useWatch({ control, name: "senderRegion" });
+  const receiverRegion = useWatch({ control, name: "receiverRegion" });
 
-// handle district selection
-const districtsByRegion = (region) => {
-  const regionDistricts = serviceCenters.filter(c => c.region === region)
-  const districts = regionDistricts.map(c => c.district);
-  return districts;
-}
+  // handle district selection
+  const districtsByRegion = (region) => {
+    const regionDistricts = serviceCenters.filter((c) => c.region === region);
+    const districts = regionDistricts.map((c) => c.district);
+    return districts;
+  };
 
-    // handle send percel
-    const handleSendPercel = (data) => {
-      const sameDistrict = data.senderDistrict === data.receiverDistrict;
-        console.log(sameDistrict);
+  // handle send percel
+  // Handle Send Parcel
+  const handleSendPercel = (data) => {
+    const isDocument = data.percelType === "document";
+    const percelWeight = Number(data.percelWeight);
+    const isSameDistrict = data.senderDistrict === data.receiverDistrict;
+
+    let cost = 0;
+
+    // Document
+    if (isDocument) {
+      cost = isSameDistrict ? 60 : 80;
     }
 
+    // Non-Document
+    else {
+      if (percelWeight <= 3) {
+        cost = isSameDistrict ? 110 : 150;
+      } else {
+        const minCharge = isSameDistrict ? 110 : 150;
+        const extraWeight = percelWeight - 3;
+
+        const extraCharge = isSameDistrict
+          ? extraWeight * 40
+          : extraWeight * 40 + 40;
+
+        cost = minCharge + extraCharge;
+      }
+    }
+    Swal.fire({
+      title: "Agree with us?",
+      text: `You will be charged ${cost} BDT for sending this percel.`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirm",
+    }).then((result) => {
+      if (result.isConfirmed)
+
+        // backed emplement kora hobe
+
+
+        // Swal.fire({
+        //   title: "Success!",
+        //   text: "Your percel has been sent.",
+        //   icon: "success",
+        // });
+    });
+  };
   return (
     <div className="my-8 bg-base-100 rounded-2xl p-5">
       <h2 className="text-5xl font-extrabold">Send Percel</h2>
@@ -252,13 +302,11 @@ const districtsByRegion = (region) => {
               >
                 <option disabled={true}>Pick a districts</option>
 
-                {
-                  districtsByRegion(receiverRegion).map((d, idx) => (
-                    <option key={idx} value={d}>
-                      {d}
-                    </option>
-                  ))
-                }
+                {districtsByRegion(receiverRegion).map((d, idx) => (
+                  <option key={idx} value={d}>
+                    {d}
+                  </option>
+                ))}
               </select>
             </fieldset>
 
@@ -283,6 +331,6 @@ const districtsByRegion = (region) => {
       </form>
     </div>
   );
-};
+};;
 
 export default SendPercel;
