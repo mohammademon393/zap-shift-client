@@ -14,8 +14,11 @@ import PrivetRoute from "./PrivetRoute";
 import Rider from "../Pages/Rider/Rider";
 import SendPercel from "../Pages/SendPercel/SendPercel";
 import ErrorPage from "../components/logo/ErrorPage/ErrorPage";
+import DashboardLayout from "../layouts/DashboardLayout";
+import MyParcels from "../Pages/Dashboard/MyParcels/MyParcels";
 
 export const router = createBrowserRouter([
+  // root Layout 1st main layout
   {
     path: "/",
     element: <RootsLayout></RootsLayout>,
@@ -25,32 +28,32 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "/services",
+        path: "services",
         Component: Services,
       },
       {
-        path: "/coverage",
+        path: "coverage",
         Component: Coverage,
         loader: () => fetch("/serviceCenters.json").then((res) => res.json()),
       },
       {
-        path: "/aboutUs",
+        path: "aboutUs",
         Component: AboutUs,
       },
       {
-        path: "/pricing",
+        path: "pricing",
         Component: Pricing,
       },
       {
-        path: "/blog",
+        path: "blog",
         Component: Blog,
       },
       {
-        path: "/contact",
+        path: "contact",
         Component: Contact,
       },
       {
-        path: "/rider",
+        path: "rider",
         element: (
           <PrivetRoute>
             <Rider></Rider>
@@ -66,30 +69,45 @@ export const router = createBrowserRouter([
         ),
         loader: () => fetch("/serviceCenters.json").then((res) => res.json()),
       },
-      {
-        path: "*",
-        Component: ErrorPage,
-      },
     ],
   },
 
-  // 2nd main layout
+  // Auth Layout 2nd main layout
   {
     path: "/",
     element: <AuthLayout></AuthLayout>,
     children: [
       {
-        path: "/login",
+        path: "login",
         Component: Login,
       },
       {
         path: "register",
         Component: Register,
       },
+      
+    ],
+  },
+
+  // Dashboard Layout 3rd main layout
+  {
+    path: "/dashboard",
+    element: (
+      <PrivetRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivetRoute>
+    ),
+    children: [
       {
-        path: "*",
-        Component: ErrorPage,
+        path: "my-parcels",
+        Component: MyParcels,
       },
     ],
+  },
+
+  // error page route
+  {
+    path: "*",
+    Component: ErrorPage,
   },
 ]);

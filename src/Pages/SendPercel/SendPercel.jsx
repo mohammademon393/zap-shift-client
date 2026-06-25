@@ -2,14 +2,24 @@ import React from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../hooks/useAuth";
 
 const SendPercel = () => {
   const {
     register,
     handleSubmit,
     control,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
+
+  // user auth data
+  const { user } = useAuth();
+
+  // use axios secure for backend communication
+  const axiosSecure = useAxiosSecure();
+
+  // load service centers data and extract unique regions for dropdown options
   const serviceCenters = useLoaderData();
   const regionsDuplicated = serviceCenters.map((c) => c.region);
   const regions = [...new Set(regionsDuplicated)];
@@ -54,6 +64,7 @@ const SendPercel = () => {
         cost = minCharge + extraCharge;
       }
     }
+    // confirmation alert
     Swal.fire({
       title: "Agree with us?",
       text: `You will be charged ${cost} BDT for sending this percel.`,
@@ -64,15 +75,19 @@ const SendPercel = () => {
       confirmButtonText: "Confirm",
     }).then((result) => {
       if (result.isConfirmed)
+        // backend communication
+        axiosSecure.post("/parcels", data).then((res) => {
+          console.log("After sending percel:", res.data);
+        });
 
-        // backed emplement kora hobe
-
-
-        // Swal.fire({
-        //   title: "Success!",
-        //   text: "Your percel has been sent.",
-        //   icon: "success",
-        // });
+      // success alert message
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     });
   };
   return (
@@ -139,6 +154,7 @@ const SendPercel = () => {
             {/* sender name */}
             <label className="label">Sender Name</label>
             <input
+              defaultValue={user?.displayName}
               type="text"
               className="input w-full mb-5"
               placeholder="Sender Name"
@@ -161,6 +177,7 @@ const SendPercel = () => {
             {/* sender email */}
             <label className="label">Sender Email</label>
             <input
+              defaultValue={user?.email}
               type="email"
               className="input w-full mb-5"
               placeholder="Sender email"
@@ -331,6 +348,6 @@ const SendPercel = () => {
       </form>
     </div>
   );
-};;
+};
 
 export default SendPercel;
