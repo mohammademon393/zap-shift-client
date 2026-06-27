@@ -72,8 +72,23 @@ isActive
       Contact
     </NavLink>
   </li>
+
+  {/* dashboard related links */}
+  {
+      user && 
+        <>
+          <li>
+            <NavLink to="/dashboard" className={navClass}>
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      
+    }
 </>
     );
+
+    
 
     return (
       <div className="navbar bg-base-100 shadow-sm rounded-xl px-3">
